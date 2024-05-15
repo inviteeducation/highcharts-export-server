@@ -8,9 +8,9 @@ frontend:
     build:
       commands:
         - env | grep -e HIGHCHARTS_SERVER_ENABLE -e HIGHCHARTS_SERVER_PORT >> .env
-        - npm run build
+        - npm start
   artifacts:
-    baseDirectory: bin
+    baseDirectory: ./bin
     files:
       - '**/*'
   cache:
