@@ -4,13 +4,12 @@ frontend:
     preBuild:
       commands:
         - npm install
-        - npm run prestart
     build:
       commands:
         - env | grep -e HIGHCHARTS_SERVER_ENABLE -e HIGHCHARTS_SERVER_PORT >> .env
         - npm start
   artifacts:
-    baseDirectory: ./bin
+    baseDirectory: ./
     files:
       - '**/*'
   cache:
