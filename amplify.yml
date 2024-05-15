@@ -1,0 +1,19 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install
+        - npm run prestart
+    build:
+      commands:
+        - env | grep -e HIGHCHARTS_SERVER_ENABLE -e HIGHCHARTS_SERVER_PORT >> .env
+        - npm run build
+  artifacts:
+    baseDirectory: bin
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - 'node_modules/**/*'
+  appRoot: highcharts-export-server
